@@ -1,0 +1,181 @@
+/*———————— Font family styles ————————*/
+
+@font-face {
+    font-family: 'Exo 2';
+    src:url('../assets/fonts/Exo2.woff2') format('woff2'),
+        url('../assets/fonts/Exo2.woff') format('woff'),
+        url('../assets/fonts/Exo2.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*———————— Formatted styles ————————*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*———————— Custom property styles ————————*/
+
+:root {
+    /*—————————— Typography ——————————*/
+    --font-main: 'Exo 2';
+    font-family: var(--font-main),
+        system-ui,
+        -apple-system,
+        sans-serif;
+    color: var(--tx-color-1);
+
+    /*——————————— Sizes ———————————*/
+    --size-1: 4px;
+    --size-2: 8px;
+    --size-3: 12px;
+    --size-4: 16px;
+    --size-5: 20px;
+    --size-6: 24px;
+    --size-7: 28px;
+    --size-8: 32px;
+    --size-9: 36px;
+
+    /*—————————— Spacing ——————————*/
+    --space-025: 0.25rem;
+    --space-050: 0.50rem;
+    --space-075: 0.75rem;
+    --space-100: 1.00rem;
+    --space-150: 1.50rem;
+    --space-200: 2.00rem;
+    --space-250: 2.50rem;
+    --space-300: 3.00rem;
+    --space-400: 4.00rem;
+    --space-500: 5.00rem;
+
+    /*——————————— Border ———————————*/
+    --solid-1: solid 1px;
+    --solid-2: solid 2px;
+    --solid-3: solid 3px;
+    --solid-4: solid 4px;
+
+    --dashed-1: dashed 1px;
+    --dashed-2: dashed 2px;
+    --dashed-3: dashed 3px;
+    --dashed-4: dashed 4px;
+
+    /*———————— Border Radius ————————*/
+    --radius-1: .25rem;
+    --radius-2: .50rem;
+    --radius-3: .75rem;
+    --radius-4: 1rem;
+
+    /*———————— Box Shadow ————————*/
+    --shadow-color: #000;
+    --shadow-low:    0px 0px 4px 2px var(--shadow-color);
+    --shadow-medium: 0px 3px 6px 1px var(--shadow-color);
+    --shadow-high:   0px 4px 8px 2px var(--shadow-color);
+
+    /*————————— Transitions —————————*/
+    --transition-1: .2s ease;
+    --transition-2: .4s ease;
+    --transition-3: .6s ease;
+
+    /*————————— For Project —————————*/
+
+    /*————————— Browser —————————*/
+
+}
+
+:root[data-theme="light"] {
+    /* Blue gray */
+    --bg-color-1: #F2F4F8;
+    --bg-color-2: #E4EAF1;
+    --bg-color-3: #D6DDE9;
+
+    --bg-color-4: #C1D0DE;
+    --bg-color-5: #B1C1D1;
+    --bg-color-6: #A2B2C2;
+
+    --bg-color-7: #7F8F9F;
+    --bg-color-8: #4F5F6F;
+    --bg-color-9: #1F2F3F;
+
+    --tx-color-1: #123;
+    --tx-color-2: #456;
+    --tx-color-3: #7899;
+
+    /* Electric */
+    --color: #0077FF;
+    --color-light: #AACCFF;
+    --color-dark: #0040AA;
+
+    /* Browser */
+
+    ::-webkit-scrollbar {
+        background-color: var(--bg-color-1);
+        width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+
+        background-color: var(--bg-color-3);
+        border-radius: 30px;
+
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color);
+    }
+    ::selection {
+        background-color: var(--color);
+        color: white;
+    }
+
+    /* For Project */
+    --selected-menu-color: var(--bg-color-1);
+}
+
+:root[data-theme="dark"] {
+    /* Blue gray */
+    --bg-color-1: #161a23;
+    --bg-color-2: #212532;
+    --bg-color-3: #303548;
+
+    --bg-color-4: #444c63;
+    --bg-color-5: #5d6789;
+    --bg-color-6: #667596;
+
+    --bg-color-7: #7d89b0;
+    --bg-color-8: #848fb6;
+    --bg-color-9: #9facd9;
+
+    --tx-color-1: #def;
+    --tx-color-2: #abc;
+    --tx-color-3: #7899;
+
+    /* Aqua */
+    --color: #00EEFF;
+    --color-light: #88FFFF;
+    --color-dark: #00BBEE;
+
+    /* Browser */
+
+    ::-webkit-scrollbar {
+        background: var(--bg-color-1);
+        width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--bg-color-2);
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color);
+    }
+    ::selection {
+        background-color: var(--color);
+        color: black;
+    }
+
+    /* For Project */
+    --selected-menu-color: var(--bg-color-3);
+}
