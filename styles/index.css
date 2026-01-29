@@ -80,6 +80,7 @@ aside {
             align-items: center;
             gap: var(--space-050);
             outline: var(--solid-1) var(--bg-color-3);
+            transition: 0.2s outline;
 
             &:hover  {
                 outline: var(--solid-1) var(--bg-color-6);
@@ -144,11 +145,12 @@ main {
     position: relative;
 }
 
-main > section:first-child{
+/* Selector :has() permite obtener la referencia del elemento <selector> que tenga como hijo un elemento con clase .app-theme-switch */
+main > section:has(.app-theme-switch){
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 1;
+
     margin: var(--space-200);
     label {
         display: flex;
@@ -156,6 +158,7 @@ main > section:first-child{
         border-radius: var(--radius-3);
         background-color: var(--bg-color-1);
         outline: var(--solid-1) var(--bg-color-3);
+        transition: 0.2s outline;
         &:hover  {
             outline: var(--solid-1) var(--bg-color-6);
         }
@@ -164,7 +167,7 @@ main > section:first-child{
 
 .app-theme-switch {
     width: max-content;
-    z-index: 2;
+
     .app-light {
         display: none;
     }
@@ -194,7 +197,6 @@ main > section:first-child{
     justify-content: space-between;
     gap: var(--space-200);
     position: relative;
-    /*border: var(--dashed-2) teal;*/
 
     .app-timer-content {
         height: 100%;
@@ -210,13 +212,14 @@ main > section:first-child{
         width: 100%;
         height: 320px;
         max-height: 320px;
-        background-color: var(--bg-color-2);
+        background-color: var(--bg-color-1);
         outline: var(--solid-1) var(--bg-color-3);
         border-radius: var(--radius-4);
         padding: var(--space-100);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        transition: 0.2s outline;
 
         &:hover {
             outline: var(--solid-1) var(--bg-color-6);
@@ -230,6 +233,7 @@ main > section:first-child{
         section {
             display: flex;
             justify-content: center;
+            width: 100%;
         }
 
         footer {
@@ -247,7 +251,7 @@ main > section:first-child{
 
             button {
                 display: flex;
-                padding: var(--space-050);
+                padding: var(--space-025);
                 border-radius: var(--radius-2);
                 background-color: var(--bg-color-1);
                 outline: var(--solid-1) var(--bg-color-3);
@@ -263,7 +267,6 @@ main > section:first-child{
         position: absolute;
         right: 0;
         bottom: 0;
-        z-index: 1;
         button {
             display: flex;
             padding: var(--space-075);
@@ -284,6 +287,30 @@ main > section:first-child{
 
 
 
+.app-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: #000;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s opacity, visibility;
+    &:has([popover]:popover-open) {
+        visibility: visible;
+        opacity: .4;
+    }
+}
+
+[popover]:popover-open {
+    background-color: var(--bg-color-1);
+    color: var(--tx-color-1);
+    margin: auto;
+}
+
+
+
 
 
 
@@ -293,6 +320,8 @@ main > section:first-child{
 
 .base-timer {
     position: relative;
+    display: flex;
+    justify-content: center;
     width: 220px;
     height: 220px;
 
@@ -312,7 +341,7 @@ main > section:first-child{
 
 .base-timer__path-elapsed {
     stroke-width: 4px;
-    stroke: var(--bg-color-1);
+    stroke: var(--bg-color-3);
 }
 
 .base-timer__path-remaining {
@@ -320,21 +349,9 @@ main > section:first-child{
     stroke-linecap: round;
     transform: rotate(90deg);
     transform-origin: center;
-    transition: 1s linear all;
+    transition: 1s linear stroke-dasharray;
     fill-rule: nonzero;
     stroke: currentColor;
-}
-
-.base-timer__path-remaining.blue {
-    color: var(--color);
-}
-
-.base-timer__path-remaining.orange {
-    color: orange;
-}
-
-.base-timer__path-remaining.red {
-    color: red;
 }
 
 .base-timer__label {
