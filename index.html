@@ -3,10 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/index.css">
-        <link rel="stylesheet" href="styles/custom.css">
-        <script type="module" src="./scripts/theme.js"></script>
-        <script type="module" src="./scripts/index.js"></script>
+        <link rel="stylesheet" href="styles">
+        <script src="scripts" type="module" defer></script>
         <title>Clock app</title>
     </head>
     <body>
@@ -106,87 +104,44 @@
 
             <!-- APP TIMER -->
 
+
             <article data-content-1>
+
                 <section class="app-timer">
                     <h1>
                         Temporizador
                     </h1>
                     <div class="app-timer-content">
-                        <article class="app-timer-item">
-                            <header>
-                                <div>
-                                    Nombre
-                                </div>
-                                <div>
-                                    Full screen icon
-                                </div>
-                            </header>
-                            <section>
-                                <div id="app"></div>
-                            </section>
-                            <footer>
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill="currentColor" d="M17.22 8.687a1.498 1.498 0 0 1 0 2.626l-9.997 5.499A1.5 1.5 0 0 1 5 15.499V4.501a1.5 1.5 0 0 1 2.223-1.313zm-.482 1.75a.5.5 0 0 0 0-.875L6.741 4.063A.5.5 0 0 0 6 4.501v10.998a.5.5 0 0 0 .741.438z" />
-                                    </svg>
-                                </button>
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill="currentColor" d="M5.854 2.646a.5.5 0 0 1 0 .708L4.207 5H11a6 6 0 1 1-6 6a.5.5 0 0 1 1 0a5 5 0 1 0 5-5H4.207l1.647 1.646a.5.5 0 1 1-.708.708l-2.5-2.5a.5.5 0 0 1 0-.708l2.5-2.5a.5.5 0 0 1 .708 0" />
-                                    </svg>
-                                </button>
-                            </footer>
-                        </article>
+<!--                        <article>-->
+<!--                            <header>-->
+<!--                                <div>-->
+<!--                                    Nombre-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    Full screen icon-->
+<!--                                </div>-->
+<!--                            </header>-->
+<!--                            <section>-->
+<!--                                <div id="app"></div>-->
+<!--                            </section>-->
+<!--                            <footer>-->
+<!--                                <button>-->
+<!--                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">-->
+<!--                                        <path fill="currentColor" d="M17.22 8.687a1.498 1.498 0 0 1 0 2.626l-9.997 5.499A1.5 1.5 0 0 1 5 15.499V4.501a1.5 1.5 0 0 1 2.223-1.313zm-.482 1.75a.5.5 0 0 0 0-.875L6.741 4.063A.5.5 0 0 0 6 4.501v10.998a.5.5 0 0 0 .741.438z" />-->
+<!--                                    </svg>-->
+<!--                                </button>-->
+<!--                                <button>-->
+<!--                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">-->
+<!--                                        <path fill="currentColor" d="M5.854 2.646a.5.5 0 0 1 0 .708L4.207 5H11a6 6 0 1 1-6 6a.5.5 0 0 1 1 0a5 5 0 1 0 5-5H4.207l1.647 1.646a.5.5 0 1 1-.708.708l-2.5-2.5a.5.5 0 0 1 0-.708l2.5-2.5a.5.5 0 0 1 .708 0" />-->
+<!--                                    </svg>-->
+<!--                                </button>-->
+<!--                            </footer>-->
+<!--                        </article>-->
 
-                        <article class="app-timer-item">
-                            <header>
-                                <div>
-                                    Nombre
-                                </div>
-                                <div>
-                                    Full screen icon
-                                </div>
-                            </header>
-                            <section>
-                                <div class="base-timer">
-                                    <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                        <g class="base-timer__circle">
-                                            <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
-                                            <path
-                                                id="base-timer-path-remaining"
-                                                stroke-dasharray="283"
-                                                class="base-timer__path-remaining" style="color:var(--bg-color-3)"
-                                                d="
-                                                  M 50, 50
-                                                  m -45, 0
-                                                  a 45,45 0 1,0 90,0
-                                                  a 45,45 0 1,0 -90,0
-                                                "
-                                            ></path>
-                                        </g>
-                                    </svg>
-                                    <span class="base-timer__label">
-                                        00:00:00
-                                    </span>
-                                </div>
-                            </section>
-                            <footer>
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill="currentColor" d="M17.22 8.687a1.498 1.498 0 0 1 0 2.626l-9.997 5.499A1.5 1.5 0 0 1 5 15.499V4.501a1.5 1.5 0 0 1 2.223-1.313zm-.482 1.75a.5.5 0 0 0 0-.875L6.741 4.063A.5.5 0 0 0 6 4.501v10.998a.5.5 0 0 0 .741.438z" />
-                                    </svg>
-                                </button>
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill="currentColor" d="M5.854 2.646a.5.5 0 0 1 0 .708L4.207 5H11a6 6 0 1 1-6 6a.5.5 0 0 1 1 0a5 5 0 1 0 5-5H4.207l1.647 1.646a.5.5 0 1 1-.708.708l-2.5-2.5a.5.5 0 0 1 0-.708l2.5-2.5a.5.5 0 0 1 .708 0" />
-                                    </svg>
-                                </button>
-                            </footer>
-                        </article>
-
+                        <timer-component></timer-component>
 
                     </div>
-                    <div class="app-timer-button_add">
+                    <div class="app-timer-btn_add">
                         <button commandfor="timer-popover" command="toggle-popover">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <rect width="24" height="24" fill="none" />

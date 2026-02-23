@@ -2,36 +2,28 @@
 
 @font-face {
     font-family: 'Exo 2';
-    src:url('../assets/fonts/Exo2.woff2') format('woff2'),
-        url('../assets/fonts/Exo2.woff') format('woff'),
-        url('../assets/fonts/Exo2.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
-}
-
-/*———————— Formatted styles ————————*/
-
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    src:url(fonts/Exo2.woff2) format('woff2'),
+    url(fonts/Exo2.woff) format('woff'),
+    url(fonts/Exo2.ttf) format('ttf');
+} html, body {
+    font-family: 'Exo 2', system-ui, arial;
 }
 
 /*———————— Custom property styles ————————*/
 
 :root {
-    /*—————————— Typography ——————————*/
+    /* Typography */
     --font-main: 'Exo 2';
     font-family: var(--font-main),
         system-ui,
         -apple-system,
-        sans-serif;
+        arial;
     color: var(--tx-color-1);
 
-    /*——————————— Sizes ———————————*/
+    /* Sizes */
     --size-1: 4px;
     --size-2: 8px;
     --size-3: 12px;
@@ -42,7 +34,7 @@
     --size-8: 32px;
     --size-9: 36px;
 
-    /*—————————— Spacing ——————————*/
+    /* Spacing */
     --space-025: 0.25rem;
     --space-050: 0.50rem;
     --space-075: 0.75rem;
@@ -54,37 +46,34 @@
     --space-400: 4.00rem;
     --space-500: 5.00rem;
 
-    /*——————————— Border ———————————*/
+    /* Border */
     --solid-1: solid 1px;
     --solid-2: solid 2px;
     --solid-3: solid 3px;
     --solid-4: solid 4px;
 
-    --dashed-1: dashed 1px;
-    --dashed-2: dashed 2px;
-    --dashed-3: dashed 3px;
-    --dashed-4: dashed 4px;
+    --dashed: dashed 4px;
 
-    /*———————— Border Radius ————————*/
+    /* Border Radius */
     --radius-1: .25rem;
     --radius-2: .50rem;
     --radius-3: .75rem;
     --radius-4: 1rem;
+    --radius-5: 2rem;
 
-    /*———————— Box Shadow ————————*/
-    --shadow-color: #000;
+    /* Box Shadow */
+    --shadow-color: #0005;
     --shadow-low:    0px 0px 4px 2px var(--shadow-color);
     --shadow-medium: 0px 3px 6px 1px var(--shadow-color);
     --shadow-high:   0px 4px 8px 2px var(--shadow-color);
 
-    /*————————— Transitions —————————*/
-    --transition-1: .2s ease;
-    --transition-2: .4s ease;
-    --transition-3: .6s ease;
+    /* Transitions */
+    --transition-1: .25s ease;
+    --transition-2: .50s ease;
+    --transition-3: .75s ease;
+    --transition-4:   1s ease;
 
-    /*————————— For Project —————————*/
-
-    /*————————— Browser —————————*/
+    /* Browser */
 
 }
 
@@ -94,7 +83,7 @@
     --bg-color-2: #E4EAF1;
     --bg-color-3: #D6DDE9;
 
-    --bg-color-4: #C1D0DE;
+    --bg-color-4: #C0D0E0;
     --bg-color-5: #B1C1D1;
     --bg-color-6: #A2B2C2;
 
@@ -131,8 +120,6 @@
         color: white;
     }
 
-    /* For Project */
-    --selected-menu-color: var(--bg-color-1);
 }
 
 :root[data-theme="dark"] {
@@ -176,6 +163,136 @@
         color: black;
     }
 
-    /* For Project */
-    --selected-menu-color: var(--bg-color-3);
 }
+
+/*———————— Reset styles ————————*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*———————— Element styles ————————*/
+
+html {
+    font-size: var(--size-4);
+    scroll-behavior: smooth;
+    interpolate-size: allow-keywords;
+    prefers-reduced-motion: no-preference;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+    margin-block: 1lh;
+}
+
+svg {
+    color: var(--tx-color-2);
+    /*fill: var(--tx-color-2);*/
+}
+
+/*———————— Utility classes ————————*/
+
+/* FlexBox */
+.fx {
+    display: flex;
+}
+.fx-row {
+    display: flex;
+    flex-direction: row;
+}
+.fx-col {
+    display: flex;
+    flex-direction: column;
+}
+.fx-wrp {
+    display: flex;
+    flex-wrap: wrap;
+}
+.fx-ctr_h {
+    display: flex;
+    align-items: center;
+}
+.fx-ctr_v {
+     display: flex;
+    justify-content: center;
+}
+.fx-ctr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fx-jsc_sa{
+    justify-content: space-around;
+}
+.fx-jsc_sb {
+    justify-content: space-between;
+}
+.fx-jsc_se {
+    justify-content: space-evenly;
+}
+
+.gap-1 {
+    gap: calc(var(--space-025) * 1);
+}
+.gap-2 {
+    gap: calc(var(--space-025) * 2);
+}
+.gap-3 {
+    gap: calc(var(--space-025) * 3);
+}
+.gap-4 {
+    gap: calc(var(--space-025) * 4);
+}
+.gap-5 {
+    gap: calc(var(--space-025) * 5);
+}
+.gap-6 {
+    gap: calc(var(--space-025) * 6);
+}
+.gap-7 {
+    gap: calc(var(--space-025) * 7);
+}
+.gap-8 {
+    gap: calc(var(--space-025) * 8);
+}
+.gap-9 {
+    gap: calc(var(--space-025) * 9);
+}
+
+
+
+/* Grid */
+
+
+/* Text */
+.tac {
+    text-align: center;
+}
+
+

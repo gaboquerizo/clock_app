@@ -1,7 +1,5 @@
 'use strict';
 
-/* Dark Mode + User Preferences */
-
 const $ThemeToggle = document.querySelector('[data-theme-switch]');
 const $HTMLRoot = document.documentElement;
 
