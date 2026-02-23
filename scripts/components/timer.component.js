@@ -20,7 +20,7 @@ export class TimerComponent extends HTMLElement {
     templateCSS(){
         return `
             <style>
-                @import url(../../styles/index.css) || @import url(./styles/index.css);
+                @import url("../../styles/index.css");
                 
                 .app-timer-item {
                     width: 100%;
@@ -122,14 +122,15 @@ export class TimerComponent extends HTMLElement {
                     align-items: center;
                     justify-content: center;
                     font-size: var(--size-9);
-                }                
+                }
+                
+                @import url("./styles/index.css");
             </style>
         `;
     };
 
     templateHTML(){
         return `
-            <link href="../../styles/index.css" rel="stylesheet">
             <article class="app-timer-item">
               <header>
                 <div>
