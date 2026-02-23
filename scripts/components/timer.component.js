@@ -20,7 +20,7 @@ export class TimerComponent extends HTMLElement {
     templateCSS(){
         return `
             <style>
-                @import url(../../styles/index.css);
+                @import "../../styles/index.css";
                 
                 .app-timer-item {
                     width: 100%;
