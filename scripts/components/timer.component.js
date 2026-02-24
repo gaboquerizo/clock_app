@@ -20,7 +20,7 @@ export class TimerComponent extends HTMLElement {
     templateCSS(){
         return `
             <style>
-                @import url("../../styles/index.css");
+                @import url("../../styles");
                 
                 .app-timer-item {
                     width: 100%;
@@ -67,12 +67,18 @@ export class TimerComponent extends HTMLElement {
                             display: flex;
                             padding: var(--space-025);
                             border-radius: var(--radius-2);
+                            border: none;
                             background-color: var(--bg-color-1);
                             outline: var(--solid-1) var(--bg-color-3);
                             color: var(--tx-color-1);
                             &:hover  {
                                 outline: var(--solid-1) var(--bg-color-6);
                             }
+                        }
+                        
+                        svg {
+                            width: var(--size-6);
+                            min-width: var(--size-6);
                         }
                     }
                 }
@@ -123,8 +129,6 @@ export class TimerComponent extends HTMLElement {
                     justify-content: center;
                     font-size: var(--size-9);
                 }
-                
-                @import url("./styles/index.css");
             </style>
         `;
     };

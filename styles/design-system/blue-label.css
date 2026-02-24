@@ -212,8 +212,9 @@ p {
 }
 
 svg {
-    width: var(--size-9);
-    height: var(--size-9);
+    min-width: var(--size-6);
+    width: var(--size-6);
+    height: var(--size-6);
     color: var(--tx-color-2);
     /*fill: var(--tx-color-2);*/
 }
