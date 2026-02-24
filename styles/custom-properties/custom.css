@@ -1,7 +1,0 @@
-:root[data-theme="light"] {
-    --selected-menu-color: var(--bg-color-1);
-}
-
-:root[data-theme="dark"] {
-    --selected-menu-color: var(--bg-color-3);
-}

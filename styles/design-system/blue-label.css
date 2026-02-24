@@ -214,7 +214,7 @@ p {
 svg {
     min-width: var(--size-6);
     width: var(--size-6);
-    height: var(--size-6);
+    height: auto;
     color: var(--tx-color-2);
     /*fill: var(--tx-color-2);*/
 }
@@ -242,7 +242,7 @@ svg {
     align-items: center;
 }
 .fx-ctr_v {
-     display: flex;
+    display: flex;
     justify-content: center;
 }
 .fx-ctr {

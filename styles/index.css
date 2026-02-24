@@ -1,27 +1,27 @@
 @import "./reset/normalize.css";
 @import "./design-system/blue-label.css";
-@import "./custom-properties/custom.css";
+
+:root {
+    &[data-theme="light"] {
+        --selected-menu-color: var(--bg-color-1);
+    }
+    &[data-theme="dark"] {
+        --selected-menu-color: var(--bg-color-3);
+    }
+}
 
 body {
     height: 100dvh;
-    display: flex;
-    flex-direction: row;
 }
 
 aside {
     min-width: 300px;
     background-color: var(--bg-color-2);
     padding: var(--space-200);
-    display: flex;
-    flex-direction: column;
     border: var(--solid-1) var(--bg-color-3);
-    gap: var(--space-200);
 
     header {
-        display: flex;
-        align-items: center;
         color: var(--tx-color-1);
-        gap: var(--space-100);
 
         svg {
             width: var(--size-8);
@@ -83,50 +83,38 @@ aside {
     }
     
     footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-
-        a {
-            display: flex;
-            text-decoration: none;
-            color: inherit;
-            &:hover {
-                color: var(--color);
-            }
+        a:hover svg {
+            color: var(--color);
         }
-
-        label {
-            display: flex;
-        }
-
         svg {
             width: var(--size-8);
             min-width: var(--size-8);
         }
-
-        .theme-switch svg {
-            width: var(--size-6);
-            min-width: var(--size-6);
-        } 
+        p {
+            margin: 0;
+        }
     }
 }
 
-aside:has(input[id="1"]:checked) ~ main [data-content-1],
-aside:has(input[id="2"]:checked) ~ main [data-content-2],
-aside:has(input[id="3"]:checked) ~ main [data-content-3],
-aside:has(input[id="4"]:checked) ~ main [data-content-4],
-aside:has(input[id="5"]:checked) ~ main [data-content-5] {
+aside:has(input[id="1"]:checked) ~ main [data-view-1],
+aside:has(input[id="2"]:checked) ~ main [data-view-2],
+aside:has(input[id="3"]:checked) ~ main [data-view-3],
+aside:has(input[id="4"]:checked) ~ main [data-view-4],
+aside:has(input[id="5"]:checked) ~ main [data-view-5] {
     display: block;
     min-height: 100%;
 }
 
-[data-content-1],
-[data-content-2],
-[data-content-3],
-[data-content-4],
-[data-content-5] {
+[data-view-1],
+[data-view-2],
+[data-view-3],
+[data-view-4],
+[data-view-5] {
     display: none;
+
+    h2 {
+        margin-block: var(--space-050);
+    }
 }
 
 main {
@@ -228,6 +216,9 @@ main > section:has(.app-theme-switch){
 }
 /* timer app component - end */
 
+[data-view] h2 {
+    background-color: red;
+}
 
 .app-overlay {
     position: fixed;
@@ -251,3 +242,125 @@ main > section:has(.app-theme-switch){
     margin: auto;
 }
 
+
+
+
+
+
+
+
+
+
+/* Contenedor del popover */
+[data-timer-popover] {
+    width: min(520px, calc(100% - (var(--space-200) * 2)));
+    border: none;
+    padding: var(--space-150);
+    border-radius: var(--radius-4);
+    background-color: var(--bg-color-1);
+    color: var(--tx-color-1);
+    outline: var(--solid-1) var(--bg-color-3);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Popover centrado */
+[data-timer-popover]:popover-open {
+    inset: 0;
+    margin: auto;
+}
+
+/* Form layout */
+[data-timer-popover] form {
+    display: grid;
+    gap: var(--space-100);
+}
+
+/* Cada campo */
+[data-timer-popover] form label {
+    width: 100%;
+    display: grid;
+    gap: var(--space-050);
+}
+
+/* Texto "Hora / Minuto / Segundo" */
+[data-timer-popover] form label span {
+    color: var(--tx-color-2);
+    font-size: var(--size-4);
+}
+
+/* Inputs */
+[data-timer-popover] input[type="number"] {
+    width: 100%;
+    padding: var(--space-075) var(--space-100);
+    border: none;
+    border-radius: var(--radius-3);
+    outline: var(--solid-1) var(--bg-color-3);
+    background-color: var(--bg-color-2);
+    color: var(--tx-color-1);
+    transition: outline var(--transition-1), background-color var(--transition-1);
+}
+
+[data-timer-popover] input[type="number"]::placeholder {
+    color: var(--tx-color-3);
+    width: 100%;
+}
+
+/* Hover / Focus */
+[data-timer-popover] input[type="number"]:hover {
+    outline: var(--solid-1) var(--bg-color-6);
+}
+
+[data-timer-popover] input[type="number"]:focus {
+    outline: var(--solid-2) var(--color);
+    background-color: var(--bg-color-1);
+}
+
+/* Acciones (los botones "Cancelar / Agregar" que insertamos con JS) */
+[data-timer-actions] {
+    display: flex;
+    gap: var(--space-075);
+    justify-content: flex-end;
+    margin-top: var(--space-100);
+}
+
+/* Botones base dentro del popover */
+[data-timer-popover] button {
+    border: none;
+    border-radius: var(--radius-3);
+    padding: var(--space-075) var(--space-100);
+    background-color: var(--bg-color-1);
+    outline: var(--solid-1) var(--bg-color-3);
+    color: var(--tx-color-1);
+    cursor: pointer;
+    transition: outline var(--transition-1), background-color var(--transition-1);
+}
+
+[data-timer-popover] button:hover {
+    outline: var(--solid-1) var(--bg-color-6);
+}
+
+/* Botón Agregar (el último dentro de data-timer-actions) */
+[data-timer-actions] button:last-child {
+    background-color: var(--color);
+    color: var(--bg-color-1);
+    outline: var(--solid-1) var(--color);
+}
+
+[data-timer-actions] button:last-child:hover {
+    outline: var(--solid-2) var(--color);
+}
+
+/* Botón "Salir" (tu botón existente) */
+[data-timer-popover] > button[command="hide-popover"] {
+    margin-top: var(--space-125);
+    width: 100%;
+}
+
+/* Si el usuario prefiere reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+    [data-timer-popover],
+    [data-timer-popover] input[type="number"],
+    [data-timer-popover] button {
+        transition: none;
+    }
+}
